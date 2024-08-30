@@ -180,6 +180,7 @@ body {
   );
   border: 1px solid #a3a4af;
   border-bottom: 5px solid rgb(255, 78, 29);
+  color: rgb(255, 255, 255);
 }
 
 .c-second-container {
