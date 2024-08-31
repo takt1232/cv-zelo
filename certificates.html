@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Certificates</title>
+</head>
+
+<body>
+    <div class="whole-container">
+        <div class="top-header-nav-container">
+            <div class="first-section">
+                <p>SEASON ENDS IN</p>
+                <h3>60 DAYS</h3>
+            </div>
+            <div class="second-section">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li class="active"><a href="certificates.html">Certificates</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="socials.html">Socials</a></li>
+                </ul>
+            </div>
+            <div class="third-section">
+                <div class="stat1-section">
+                    <i class="fa-solid fa-star"></i>
+                    <p>50+</p>
+                    <i class="fa-solid fa-heart"></i>
+                    <p>300+</p>
+                </div>
+                <div class="stat2-section">
+                    <i class="fa-solid fa-trophy"></i>
+                    <p>10</p>
+                    <i class="fa-solid fa-user-friends"></i>
+                    <p>500+</p>
+                </div>
+            </div>
+        </div>
+        <div class="certificates-container">
+            <div class="certificate-f-section">
+                <div class="certificate-img-container">
+                    <img id="certificate-image" src="images/Cert 2.png" alt="">
+                </div>
+            </div>
+            <div class="certificate-s-section">
+                <div class="certificate-title-container">
+                    <h1 id="certificate-title">CERTIFICATE TITLE</h1>
+                    <p id="certificate-subtitle">CERTIFICATE SUBTITLE</p>
+                </div>
+                <div class="certificate-selection">
+                    <div class="certificate-card active" data-title="Certificate 1" data-subtitle="Subtitle 1"
+                        data-img="images/Cert 2.png">
+                        <i class="fa-solid fa-certificate"></i>
+                        <img src="images/Cert 2.png" alt="">
+                        <p>Certificate 1</p>
+                    </div>
+                    <div class="certificate-card" data-title="Certificate 2" data-subtitle="Subtitle 2"
+                        data-img="images/bg.png">
+                        <i class="fa-solid fa-certificate"></i>
+                        <img src="images/bg.png" alt="">
+                        <p>Certificate 2</p>
+                    </div>
+                    <div class="certificate-card" data-title="Certificate 3" data-subtitle="Subtitle 3"
+                        data-img="images/Group 11.png">
+                        <i class="fa-solid fa-certificate"></i>
+                        <img src="images/Group 11.png" alt="">
+                        <p>Certificate 3</p>
+                    </div>
+                    <div class="certificate-card" data-title="Certificate 4" data-subtitle="Subtitle 4"
+                        data-img="images/match.png">
+                        <i class="fa-solid fa-certificate"></i>
+                        <img src="images/match.png" alt="">
+                        <p>Certificate 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.certificate-card');
+        const titleElement = document.getElementById('certificate-title');
+        const subtitleElement = document.getElementById('certificate-subtitle');
+        const imageElement = document.getElementById('certificate-image');
+        const imgContainer = document.querySelector('.certificate-img-container');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove 'active' class from all cards
+                cards.forEach(c => c.classList.remove('active'));
+
+                // Add 'active' class to the clicked card
+                card.classList.add('active');
+
+                // Update title and subtitle based on the clicked card
+                const newTitle = card.getAttribute('data-title');
+                const newSubtitle = card.getAttribute('data-subtitle');
+                const newImage = card.getAttribute('data-img');
+                titleElement.textContent = newTitle;
+                subtitleElement.textContent = newSubtitle;
+
+                // Update the image source
+                imageElement.src = newImage;
+
+                // Add the slide-in class to the image container
+                imageElement.classList.add('slideInFromLeft');
+
+                // Remove the slide-in class after the animation to allow re-triggering
+                imageElement.addEventListener('animationend', () => {
+                    imageElement.classList.remove('slideInFromLeft');
+                }, { once: true });
+            });
+        });
+    });
+</script>
+<script src="https://kit.fontawesome.com/a5d1d11cff.js" crossorigin="anonymous"></script>
+
+</html>
